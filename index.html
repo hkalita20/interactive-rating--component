@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
+  
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .hidden{
+      display:none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Rating state start -->
+  
+  <div class="form">
+    <picture class="log">
+      <img src="./images/icon-star.svg" alt="star-logo" class="image">
+    </picture>
+    <h1>How did we do?</h1>
+    
+      <p>Please let us know how we did with your support request. All feedback is appreciated 
+        to help us improve our offering!</p>
+        
+        <div id="rates">
+          <button id="non" value="none" class="btn cl" style="display: none;"></button>
+          <button id="one" value="1" class="btn">1</button> <button class="btn" id="two" value="2" >2</button> <button id="three" class="btn" value="3" >3</button> <button id="four" class="btn" value="4" >4</button> <button id="five" class="btn" value="5">5</button>
+        </div>
+        
+        <form action="index2.html" onsubmit="return validform()">
+        <button class="submit" type="submit">S U B M I T</button> 
+      </form>
+      </div>
+      
+      <!-- Rating state end -->
+      
+      <!-- Thank you state start -->
+      
+ 
+  <!-- Thank you state end -->
+
+
+
+  <script>
+  let theParent= document.querySelector("#rates");
+  theParent.addEventListener("click",dosomething);
+  function dosomething(e){
+    if(e.target !== e.currentTarget){
+      let clickedItem=e.target.id;
+      let element=document.getElementById(clickedItem);
+      document.querySelector(".cl").classList.remove("cl");
+      element.classList.add("cl");
+    }
+  }
+  
+
+  function validform(){
+    rate=document.querySelector(".cl").value;
+    localStorage.setItem("ratevalue",rate);
+    return;
+  }
+  </script>
+
+
+</body>
+</html>
